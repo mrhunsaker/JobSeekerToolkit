@@ -1,0 +1,205 @@
+\documentclass[11pt,letterpaper,twoside]{book}
+% catoptions patch (no guarantee that will work):
+% must be applied before loading catoptions
+\def\FIXcatoptions\endgroup#1\begingroup{#1}
+\AddToHook{package/after/catoptions}
+  {\gleftaddtocs\document{\FIXcatoptions}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[bottom, hang, multiple]{footmisc}
+\usepackage[export]{adjustbox}
+\usepackage{silence}
+\WarningFilter{hyperref}{Token not allowed in a PDF string}
+\WarningFilter{catoptions}{Undefined options}
+\WarningFilter{subfloat}{Numbers of floats not counted}
+\usepackage[font=small, labelfont=bf, labelsep=colon, hang, singlelinecheck=off, justification=raggedright]{caption}
+\usepackage[none]{hyphenat}
+\usepackage[title,toc,page,header, titletoc]{appendix}
+\usepackage[titles]{tocloft}
+\PassOptionsToPackage{hyphens}{url}\usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{arydshln}
+\usepackage{avant}
+\usepackage{bbold}
+\usepackage{multicol}
+\usepackage{blindtext}
+\usepackage{calc}
+\usepackage{catoptions}
+\usepackage{changepage}
+\usepackage{colortbl}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage[lof,lot]{etoc}
+\usepackage{etoolbox}
+\usepackage{etoolbox}
+\usepackage{extramarks}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{framed}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{iftex}
+\usepackage{lastpage}
+\usepackage{lastpage}
+\usepackage{lipsum}
+\usepackage{lmodern}
+\usepackage{longtable,booktabs,array}
+\usepackage{makecell}
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{parskip}
+\usepackage{pdfpages}
+\usepackage{placeins}
+\usepackage{ragged2e}
+\usepackage{rotating}
+\usepackage{stmaryrd}
+\usepackage{tcolorbox}
+\usepackage{textcomp} 
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{tablefootnote}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\usepackage{subfig}
+\usepackage[normalem]{ulem}
+\usepackage{subfloat}
+\usepackage{float}
+
+\setlength{\cftsubsecindent}{0pt}
+\setlength\extrarowheight{0.5em}
+\renewcommand{\thefootnote}{\textbf{\arabic{footnote}}}
+\setlength{\LTleft}{0pt}
+\AtBeginEnvironment{longtable}{\fontsize{10pt}{10pt}\selectfont} 
+\AtBeginEnvironment{quote}{\vspace{-\baselineskip}}
+\setlength{\dashlinedash}{0.5pt}
+\setlength{\dashlinegap}{5pt}
+\renewenvironment{leftbar}[1][\hsize]
+{%
+    \def\FrameCommand{%
+        {\color{black}\vrule width 5pt}%
+        \hspace{0pt}
+        \fboxsep=\FrameSep\colorbox{gray!5}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
+\setlength{\footnotemargin}{1em}
+\setlength{\footnotesep}{0pt} % Reduce space between footnotes
+\newcommand\fnsep{\textsuperscript{,}}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width \textwidth height .5pt
+  \kern 2pt
+}
+\graphicspath{ {./images/} }
+\pagestyle{fancyplain}                 
+\renewcommand\plainheadrulewidth{1pt}  
+\renewcommand\plainfootrulewidth{1pt}  
+\raggedbottom
+\raggedright
+\setcounter{secnumdepth}{5}
+\setlength\parindent{0pt}
+  \break\urlstyle{same}
+\setlength{\headheight}{25.0pt}
+\renewcommand{\headrulewidth}{1pt} 
+\renewcommand{\footrulewidth}{1pt}
+\setmainfont{Atkinson-Hyperlegible}[
+    Path=fontfiles/,
+    Extension=.otf,
+    UprightFont=*-Regular-102,
+    BoldFont=*-Bold-102,
+    ItalicFont=*-Italic-102,
+    BoldItalicFont=*-BoldItalic-102
+]
+\setsansfont{Aphont}[
+    Path=fontfiles/,
+    Extension=.ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic
+    ]
+
+\setmonofont{JetBrainsMono}[
+    Path=fontfiles/,
+    Extension=.ttf,
+    UprightFont= *-Medium,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic
+    ]
+\newfontfamily\ComicSans{Comic Sans MS}
+\renewcommand{\appendixtocname}{List of appendices}
+\renewcommand{\appendixpagename}{APPENDICES}
+\appendixtocoff
+\titleformat{\chapter}[block]
+{\normalfont\LARGE\bfseries\raggedright}{}{1em}{}
+\titlespacing*{\chapter}{-10pt}{-10pt}{0pt}
+\titleformat{\section}[block]
+  {\normalfont\Large\bfseries\raggedright}{}{1em}{}
+\titlespacing*{\section}{0pt}{10pt}{10pt}
+\titleformat{\subsection}[block]
+  {\normalfont\Large\bfseries\raggedright}{\thesection.\arabic{subsection}}{1em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{10pt}
+\renewcommand\cftsecafterpnum{\vskip1pt}
+\setlength{\cftbeforesecskip}{0pt}
+
+\title{\vspace{-5cm}\includegraphics[width=1\linewidth]{branding.png} \\ \vspace{5cm}\Huge The JobSeeker's Toolkit}
+\author{Original:\\ APH CareerConnect \& NSITE Connect\\August 22, 2022}
+\date{\vfill \textit{Updated, Reformatted, and Expanded by Michael Ryan Hunsaker, M.Ed., Ph.D.: \\ {\today}}}
+\renewcommand\cftsecleader{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\begin{document}
+\raggedbottom
+\raggedright
+\pagenumbering{gobble}
+\maketitle
+\clearpage
+\pagenumbering{roman}
+\hypersetup{
+	pdfborderstyle={/S/U/W 1},
+	linkbordercolor=magenta,
+	linkcolor=darkgray,
+	citecolor=darkgray,
+	citebordercolor=magenta,
+	filebordercolor=magenta,
+	urlbordercolor=magenta,
+	urlcolor=darkgray
+}
+\setcounter{tocdepth}{1}
+\fancyhead{}
+\fancyfoot{}
+
+\extramarks{JobSeeker's Toolkit}{Contents}
+\tableofcontents
+\clearpage
+\fancyhead{}
+\fancyfoot{}
+\interfootnotelinepenalty=10000
+\pagestyle{fancyplain}
+\fancyfoot[C]{\thepage}
+\addcontentsline{toc}{chapter}{\raggedright Introduction}
+\extramarks{ }{Introduction}
+\include{./Chapters/Introduction}
+\fancyhead[L]{\textit{\lastxmark}}
+\fancyhead[R]{\textit{\firstxmark}}
+
+\fancyfoot[C]{\textit{Page \thepage\  of \pageref{LastPage}}}
+\pagenumbering{arabic}
+\include{./Chapters/Chapter1}
+\include{./Chapters/Chapter2}
+\include{./Chapters/Chapter3}
+\include{./Chapters/Chapter4}
+\include{./Chapters/Chapter5}
+\addcontentsline{toc}{chapter}{\raggedright Conclusion}
+\extramarks{Jobseeker's Toolbox}{Conclusion}
+\include{./Chapters/Conclusion}
+
+\end{document}
